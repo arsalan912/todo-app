@@ -1,0 +1,298 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;600;700&display=swap");
+
+:root {
+  --activeFilterColor: hsl(220, 98%, 61%);
+  /* light theme */
+  --LightMode-BodyColor: rgb(250, 250, 250);
+  --LightMode-ContainerColor: rgb(255, 255, 255);
+  --LightMode-MainFontColor: rgb(107, 108, 131);
+  --LightMode-SecondFontColor: rgb(149, 149, 157);
+  --LightMode-ThirdFontColor: rgb(215, 214, 219);
+  /* dark theme */
+  --DarkMode-BodyColor: rgb(24, 24, 36);
+  --DarkMode-ContainerColor: rgb(37, 39, 60);
+  --DarkMode-MainFontColor: rgb(179, 181, 205);
+  --DarkMode-SecondFontColor: rgb(87, 89, 111);
+  --DarkMode-ThirdFontColor: rgb(84, 86, 113);
+  /* general */
+  --fontBody: 18px;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-size: var(--fontBody);
+  font-family: "Josefin Sans", sans-serif;
+  transition: 0.2s;
+}
+.dark {
+  background-color: var(--DarkMode-BodyColor);
+  color: var(--DarkMode-MainFontColor);
+}
+.light {
+  background-color: var(--LightMode-BodyColor);
+  color: var(--LightMode-MainFontColor);
+}
+.back-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 34.2vh;
+  width: 100vw;
+  z-index: -1;
+  transition: 0.2s;
+}
+.dark .back-image {
+  background: url("../images/bg-desktop-dark.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.light .back-image {
+  background: url("../images/bg-desktop-light.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.container {
+  max-width: 35rem;
+  margin: auto;
+  /* background: rgba(255, 255, 255, 0.1); */
+  height: 10rem;
+  margin-top: 5rem;
+  transition: 0.2s;
+}
+.container-nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 1rem;
+  transition: 0.2s;
+}
+.container-nav h1 {
+  letter-spacing: 10px;
+  color: #fff;
+}
+.container-nav .mode {
+  height: 1.5rem;
+  width: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.dark .container-nav .mode {
+  background-image: url("../images/icon-sun.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.light .container-nav .mode {
+  background-image: url("../images/icon-moon.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+form {
+  display: flex;
+  padding: 1.3rem 1rem;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+  transition: 0.2s;
+}
+.dark form {
+  background-color: var(--DarkMode-ContainerColor);
+}
+.light form {
+  background-color: var(--LightMode-ContainerColor);
+}
+form > div {
+  display: flex;
+  align-items: center;
+  column-gap: 1rem;
+}
+.circle-Form {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 100%;
+  border: 1px solid var(--DarkMode-SecondFontColor);
+}
+
+input {
+  /* width: 100%; */
+  /* box-sizing: border-box; */
+  outline: none;
+  background: none;
+  border: none;
+  font-size: inherit;
+  color: inherit;
+  font-family: inherit;
+}
+form #addBtn {
+  opacity: 0;
+}
+.main {
+  border-radius: 4px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+  transition: 0.2s;
+}
+.dark .main {
+  background-color: var(--DarkMode-ContainerColor);
+}
+.light .main {
+  background-color: var(--LightMode-ContainerColor);
+}
+.todo-container {
+  width: 100%;
+  list-style: none;
+  max-height: 20rem;
+  overflow: scroll;
+}
+.todo-container::-webkit-scrollbar {
+  display: none;
+}
+
+.todo-container li {
+  position: relative;
+  padding: 1.2rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+  border-bottom: 1px solid rgba(87, 89, 111, 0.2);
+}
+.light .todo-container li {
+  border-bottom: 1px solid rgba(87, 89, 111, 0.1);
+}
+.todo-container .hidden {
+  display: none;
+}
+.checkbox {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 100%;
+  border: 1px solid var(--DarkMode-SecondFontColor);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.checkbox:hover {
+  border: 1px solid hsl(192, 100%, 67%);
+}
+.checkbox img {
+  display: none;
+}
+.checked .checkbox {
+  background: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+}
+.checked .checkbox img {
+  display: block;
+}
+.checked p {
+  text-decoration: line-through;
+}
+.dark .checked p {
+  color: var(--DarkMode-SecondFontColor);
+}
+.light .checked p {
+  color: var(--LightMode-SecondFontColor);
+}
+.bin {
+  width: 25px;
+  /* background-color: rgb(205, 109, 109); */
+  position: absolute;
+  fill: rgb(237, 73, 73);
+  cursor: pointer;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+}
+.todo-container li:hover .bin {
+  opacity: 1;
+}
+.footer {
+  position: relative;
+  display: flex;
+  font-size: 14px;
+  justify-content: space-between;
+  padding: 1rem;
+  color: var(--DarkMode-ThirdFontColor);
+  transition: 0.2s;
+}
+.filters {
+  display: flex;
+  gap: 0.7rem;
+  transition: 0.2s;
+}
+.footer span {
+  color: inherit;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.dark .footer span:hover {
+  color: var(--DarkMode-MainFontColor);
+}
+.light .footer span:hover {
+  color: var(--LightMode-MainFontColor);
+}
+#footer .filter--active {
+  color: var(--activeFilterColor);
+}
+
+@media screen and (max-width: 590px) {
+  :root {
+    --fontBody: 14px;
+  }
+  .container {
+    margin: 10vh 1rem auto 1rem;
+  }
+  .todo-container {
+    max-height: 16rem;
+  }
+}
+@media screen and (max-width: 446px) {
+  .back-image {
+    height: 31vh;
+  }
+  .filters {
+    position: absolute;
+    bottom: -130%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 3rem;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 30px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+  }
+  .dark .filters {
+    background-color: var(--DarkMode-ContainerColor);
+  }
+  .light .filters {
+    background-color: var(--LightMode-ContainerColor);
+  }
+  .dark .back-image {
+    background: url("../images/bg-mobile-dark.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .light .back-image {
+    background: url("../images/bg-mobile-light.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  input {
+    width: auto;
+  }
+  .todo-container li {
+    padding: 0.8rem 0.6rem;
+  }
+}
